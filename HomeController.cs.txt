@@ -1,0 +1,33 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div>
+    <h1>Hello</h1>
+    Enter Pin code :
+    <input type="number" id="in1" />
+    <input type="button" value="Search" id="btn1" />
+    <div>
+        <label>State : </label>
+        <input type="text" id="in2" />
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $("#btn1").click(function () {
+        $.ajax({
+            url: "https://api.postalpincode.in/pincode/" + $("#in1").val(),
+            success: function (result) {
+                console.log(result);
+                console.log("State", result[0].PostOffice[0].State);
+                $("#in2").val(result[0].PostOffice[0].State);
+            }
+        });
+    });
+</script>
