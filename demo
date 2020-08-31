@@ -1,0 +1,24 @@
+<div>
+    <br /><br />
+          <select id="country">
+              <option value="Canada">Canada</option>
+              <option value="India">India</option>
+              <option value="US">US</option>
+          </select>
+    <div id="showdiv">
+        <label>Enter text only on select of India</label>
+        <input type="text" />
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $("#showdiv").hide();
+    $("#country").change(function () {
+        var selectedCountry = $(this).children("option:selected").val();
+        $("#showdiv").hide();
+        //alert("You have selected the country - " + selectedCountry);
+        if (selectedCountry == "India") {
+            $("#showdiv").show();
+        }
+    });
+</script>
