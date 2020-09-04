@@ -1,3 +1,76 @@
+Take line 2 to 54
+<div id="showdiv">
+    <div>
+        <label>Name</label>
+        <input type="text" id="name"/>
+    </div>
+    <div>
+        <label>Class</label>
+        <input type="text" id="class1"/>
+    </div>
+</div>
+
+
+<br />
+<br />
+<table>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>ABC</td>
+            <td>6</td>
+            <td onclick="edit(1,'ABC', 6)">Edit</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>XYZ</td>
+            <td>5</td>
+            <td onclick="edit(2, 'XYZ', 5)">Edit</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>PQR</td>
+            <td>7</td>
+            <td onclick="edit(3, 'PQR', 7)">Edit</td>
+        </tr>
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $("#showdiv").hide();
+
+    function edit(id, name, class1) {
+        //alert(id);
+        $("#showdiv").show();
+        $("#name").val(name);
+        $("#class1").val(class1);
+    };
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div>
     <br /><br />
           <select id="country">
