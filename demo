@@ -1,3 +1,182 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="demo112.WebForm2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Do you want to change?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+    <style>
+        .flex {
+            justify-content: center;
+            display: flex;
+        }
+
+        .rd {
+            padding-right: 8%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">NEW</h1>
+    <form id="form1" runat="server" autocomplete="off">
+        <div class="text-center">
+            <h2 class="text-danger">MAS Finicial LTD.</h2>
+        </div>
+        <div class="text-dark text-center" style="margin-top: 50px;">
+            <h2 class="text-capitalize text-info">Branch Form</h2>
+            <hr />
+        </div>
+
+        <div class="form-group">
+            <asp:HiddenField ID="HiddenField2" runat="server" />
+        </div>
+        <div class="flex">
+            <div>
+                <asp:Label ID="Label4" runat="server" Text="Branch Name:*" CssClass=""></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div>
+                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Width="200px" MaxLength="20" placeholder="Branch Name*"></asp:TextBox>
+            </div>
+        </div>
+        <br />
+        <div class="flex rd">
+            <div>
+                <asp:Label ID="lblisactive" runat="server" Text="Is active?:*" CssClass=""></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div>
+                <asp:RadioButton ID="RadioButton1" runat="server" Text="Yes" Checked="true" GroupName="active" CssClass="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RadioButton ID="RadioButton2" runat="server" Text="No" GroupName="active" />
+            </div>
+        </div>
+        <br />
+        <div class="form-group text-center">
+            <asp:Button ID="Button1" runat="server" Text="Submit" CssClass="btn btn-primary" />
+            <asp:Button ID="Button2" runat="server" Text="Clear" CssClass="btn btn-danger" />
+        </div>
+
+        <hr />
+        <hr />
+        <br />
+        <br />
+        <br />
+        <div>
+
+
+            <%-- ---------------------------------------------------------------------------------------------------------------------------------- --%>
+            
+
+            <h1 class="text-center">OLD</h1>
+        <div class="form-group row text-center">
+
+            <asp:Label ID="Label1" runat="server" Text="Branch Name:*" CssClass="col-sm-2 col-form-label"></asp:Label>
+            <div class="col-sm-10">
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Width="200px" MaxLength="20" placeholder="Branch Name*"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please Fill Branch name" ForeColor="#ff0000"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please enter only alphabets" ValidationExpression="[a-zA-Z ]*$" ForeColor="#ff0000"></asp:RegularExpressionValidator>
+
+        </div>
+            <div class="flex text-center">
+                <div>
+                    <asp:Label ID="Label3" runat="server" Text="Branch Name:*" CssClass=""></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Width="200px" MaxLength="20" placeholder="Branch Name*"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please Fill Branch name" ForeColor="#ff0000"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please enter only alphabets" ValidationExpression="[a-zA-Z ]*$" ForeColor="#ff0000"></asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <div class="row">
+                <%--<div class="col-lg-3"></div>--%>
+                <div class="text-center">
+                    <div class="form-group">
+                        <asp:HiddenField ID="HiddenField1" runat="server" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblbmname" runat="server" Text="Branch Name:*" CssClass="col-lg-3 col-md-6 col-sm-12"></asp:Label>
+                        <asp:TextBox ID="txtbmname" runat="server" CssClass="col-lg-3 col-md-6 col-sm-12" Width="14%" MaxLength="20" placeholder="Branch Name*"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="reqbmname" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please Fill Branch name" ForeColor="#ff0000"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="ragbmname" runat="server" ControlToValidate="txtbmname" ErrorMessage="Please enter only alphabets" ValidationExpression="[a-zA-Z ]*$" ForeColor="#ff0000"></asp:RegularExpressionValidator>
+                    </div>
+                    <%--<div class="form-group">--%>
+                    <%--col-lg-3 col-md-6 col-sm-12--%>
+                    <%-- <asp:Label ID="lblisactive" runat="server" Text="Is active?:*" CssClass="col-lg-3 col-md-6 col-sm-12"></asp:Label>
+                        <asp:RadioButton ID="rbyes" runat="server" Text="Yes" Checked="true" GroupName="active" CssClass="custom-radio col-lg-3 col-md-6 col-sm-12" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RadioButton ID="rbno" runat="server" Text="No" GroupName="active" />
+
+                    </div>--%>
+                    <div class="form-group">
+                        <asp:Button ID="btnsbt" runat="server" Text="Submit" CssClass="btn btn-primary" />
+                        <asp:Button ID="btnclear" runat="server" Text="Clear" CssClass="btn btn-danger" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://stackoverflow.com/questions/216833/can-i-convert-a-boolean-to-yes-no-in-a-asp-net-gridview
 
 Take line 2 to 54
