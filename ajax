@@ -1,3 +1,12 @@
+<input type="checkbox" value="True" id=Ahmedabad name=Ahmedabad/>Ahmedabad
+<br />
+<input type="checkbox" value="True" id=Baroda name=Baroda />Baroda
+<br />
+<input type="checkbox" value="True" id=Surat name=Surat />Surat
+
+
+
+
 ----.cshtml file
 
 <div class="form-group">
