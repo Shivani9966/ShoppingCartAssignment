@@ -1,10 +1,27 @@
-<input type="checkbox" value="True" id=Ahmedabad name=Ahmedabad/>Ahmedabad
-<br />
-<input type="checkbox" value="True" id=Baroda name=Baroda />Baroda
-<br />
-<input type="checkbox" value="True" id=Surat name=Surat />Surat
+List<string> CityList = new List<string>();
+                CityList.Add("Ahmedabad");
+                CityList.Add("Baroda");
+                CityList.Add("Surat");
+                ViewBag.allhobbies = CityList;
 
-
+List<string> CityList = new List<string>();
+                    CityList.Add("Ahmedabad");
+                    CityList.Add("Baroda");
+                    CityList.Add("Surat");
+                    ViewBag.allhobbies = CityList;
+                    var HobbyList = "";
+                    foreach (var item in ViewBag.allhobbies)
+                    {
+                        if (!string.IsNullOrEmpty(collection[item]))
+                        {
+                            string check = collection[item];
+                            bool Ischeck = Convert.ToBoolean(check);
+                            if (Ischeck)
+                            {
+                                HobbyList = item + " " + HobbyList;
+                            }
+                        }
+                    }
 
 
 ----.cshtml file
