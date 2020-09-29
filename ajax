@@ -1,1 +1,50 @@
+----.cshtml file
 
+<div class="form-group">
+            @Html.LabelFor(model => model.Hobby, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @foreach (var item in ViewBag.allhobbies)
+                {
+                    <input type="checkbox" value="True" id=@item.HobbyName name=@item.HobbyName />@item.HobbyName<br />
+                }
+                @Html.ValidationMessageFor(model => model.Hobby, "", new { @class = "text-danger" })
+            </div>
+</div>
+
+-----controller
+// GET: Employees/Create
+        public ActionResult Create()
+        {
+            ViewBag.allhobbies = db.Hobbies.ToList();
+        }
+        
+        
+        
+        //post
+        
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,Email,Department,Contact,Address,City,State,Hobby")] Employee employee,FormCollection collection)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.allhobbies = db.Hobbies.ToList();
+                var HobbyList = "";
+                foreach(var item in ViewBag.allhobbies)
+                {
+                    if(!string.IsNullOrEmpty(collection[item.HobbyName]))
+                    {
+                        string check = collection[item.HobbyName];
+                        bool Ischeck = Convert.ToBoolean(check);
+                        if(Ischeck)
+                        {
+                            HobbyList = item.HobbyName + " " + HobbyList;
+                        }
+                    }
+                }
+                employee.Hobby = HobbyList;
+                db.Employees.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+             }
+            return View(employee);
+        }
