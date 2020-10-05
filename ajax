@@ -1,1 +1,6 @@
+--------In View(.cshtml file) of Edit 
+@Html.TextBoxFor(model => model.BirthDate, (String)ViewData["Date"], new { Type = "date", htmlAttributes = new { @class = "form-control" } })
 
+--------GET Edit Method of Controller
+DateTime date = customerModel.BirthDate ?? DateTime.Now;
+ViewData["Date"] = date.ToString("yyyy-MM-dd");
